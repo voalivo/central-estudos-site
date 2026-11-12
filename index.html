@@ -1,4 +1,53 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="theme-color" content="#0B1938"/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><meta name="description" content="Biblioteca e simulados colaborativos com revisão espaçada."/><title>Central de Estudos</title>  <script type="module" crossorigin src="/assets/index-Cd-3H8Sd.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-BXcEDnoI.css">
-</head><body><div id="root"></div></body></html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#0B1938"/>
+<meta name="description" content="Biblioteca e simulados colaborativos com revisão espaçada."/>
+<link rel="icon" type="image/png" sizes="32x32" href="/marca/favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/marca/favicon-192.png"/>
+<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png"/>
+<link rel="preload" as="image" href="/marca/logo-320.webp" imagesrcset="/marca/logo-320.webp 320w, /marca/logo-640.webp 640w" imagesizes="260px"/>
+<title>Central de Estudos</title>
+<style>
+  /* Abertura: aparece antes de qualquer código do site carregar (inclusive antes do login). */
+  #abertura { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; background: radial-gradient(circle at 50% 42%, #FFFFFF 0%, #FFFFFF 38%, #F4F6F8 100%); transition: opacity .45s ease, visibility .45s; }
+  #abertura.saindo { opacity: 0; visibility: hidden; }
+  #abertura .quadro { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  #abertura img { width: min(260px, 62vw); height: auto; aspect-ratio: 320 / 325; animation: abertura-entra .9s cubic-bezier(.2,.8,.2,1) both; }
+  #abertura .barra { width: 120px; height: 4px; border-radius: 4px; background: #E4E7EC; overflow: hidden; }
+  #abertura .barra span { display: block; height: 100%; width: 100%; background: #F5A623; transform-origin: left; animation: abertura-barra 1.5s ease-in-out .2s both; }
+  @keyframes abertura-entra { from { opacity: 0; transform: translateY(14px) scale(.92); } to { opacity: 1; transform: none; } }
+  @keyframes abertura-barra { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @media (prefers-reduced-motion: reduce) { #abertura img, #abertura .barra span { animation: none; } }
+</style>
+  <script type="module" crossorigin src="/assets/index-B5wPvHu8.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DHGVJEzH.css">
+</head>
+<body>
+<div id="abertura" role="status" aria-label="Abrindo a Central de Estudos">
+  <div class="quadro">
+    <img src="/marca/logo-320.webp" srcset="/marca/logo-320.webp 320w, /marca/logo-640.webp 640w" sizes="260px" width="260" height="264" alt="Central de Estudos"/>
+    <div class="barra" aria-hidden="true"><span></span></div>
+  </div>
+</div>
+<script>
+  // Fecha a abertura quando o site avisar que está pronto (window.__fecharAbertura), depois de um tempo mínimo.
+  // Uma vez por sessão do navegador; com "movimento reduzido", fica só o tempo de carregar.
+  (function () {
+    var el = document.getElementById('abertura');
+    var jaViu = false; try { jaViu = sessionStorage.getItem('ce:abertura') === '1'; sessionStorage.setItem('ce:abertura', '1'); } catch (e) {}
+    var calmo = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var minimo = jaViu || calmo ? 0 : 1600, inicio = Date.now(), fechada = false;
+    if (jaViu) el.style.display = 'none';
+    window.__fecharAbertura = function () {
+      if (fechada) return; fechada = true;
+      setTimeout(function () { el.classList.add('saindo'); setTimeout(function () { el.remove(); }, 500); }, Math.max(0, minimo - (Date.now() - inicio)));
+    };
+    setTimeout(window.__fecharAbertura, 8000); // segurança: nunca prende a tela
+  })();
+</script>
+<div id="root"></div>
+</body>
+</html>
