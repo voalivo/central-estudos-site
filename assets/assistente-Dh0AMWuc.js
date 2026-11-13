@@ -1,0 +1,1 @@
+const s="Lisa",t={src:"/assistente/assistente-rosto-96.webp",srcSet:"/assistente/assistente-rosto-48.webp 48w, /assistente/assistente-rosto-96.webp 96w, /assistente/assistente-rosto-192.webp 192w"},e=`${s}, sua assistente de estudos`;export{s as A,t as R,e as a};
