@@ -1,1 +1,0 @@
-const n=new Set;let e={item:null,pastaId:null};function l(t,o=null){if(!(e.item===t&&e.pastaId===o)){e={item:t,pastaId:o};for(const u of n)u(e)}}function a(t){return n.add(t),t(e),()=>n.delete(t)}export{l as a,a as o};

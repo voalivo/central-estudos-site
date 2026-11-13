@@ -1,0 +1,1 @@
+const n=new Set;let a={item:null,pastaId:null,ocupado:!1};const e=()=>{for(const o of n)o(a)};function u(o,t=null){a.item===o&&a.pastaId===t||(a={...a,item:o,pastaId:t},e())}function l(o){a.ocupado!==!!o&&(a={...a,ocupado:!!o},e())}function r(o){return n.add(o),o(a),()=>n.delete(o)}export{u as a,l as b,r as o};
