@@ -1,4 +1,4 @@
-import{c as D,r as o,j as a,L as P,P as F,a as M,C as T,B as I}from"./index-4BKJU4PI.js";import{a as A,f as H,P as b,p as X}from"./tarefas-C0PUjE7a.js";import{X as G}from"./x-Bnz32A_r.js";import{T as J}from"./trash-2-C9ShDZD4.js";/**
+import{c as D,r as o,j as a,L as P,P as F,a as M,C as T,B as I}from"./index-GXVwmAao.js";import{a as A,f as H,P as b,p as X}from"./tarefas-pBSLnyT6.js";import{X as G}from"./x-DSdid0PU.js";import{T as J}from"./trash-2-Bz_obx84.js";/**
  * @license lucide-react v0.468.0 - ISC
  *
  * This source code is licensed under the ISC license.
