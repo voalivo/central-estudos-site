@@ -1,0 +1,1 @@
+async function c(i,n){const t=Object.entries(n||{}).filter(([,s])=>s==null?void 0:s.length);if(!t.length)return{};const r=await Promise.all(t.map(([s,e])=>i.from("study_chunks").select("id").eq("material_id",s).in("position",e))),a={};return t.forEach(([s],e)=>{a[s]=(r[e].data||[]).map(o=>o.id)}),a}export{c as i};
